@@ -1,5 +1,6 @@
 import React from 'react';
 import img from '../../../pictures/photo-1467232004584-a241de8bcf5d.webp'
+import { FaRegCheckCircle } from 'react-icons/fa'
 const Home = () => {
     return (
         <div>
@@ -14,6 +15,15 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className='p-20 border-x-4 shadow-2xl my-4'>
+                <h1 className='text-center text-5xl'>Sounds Like You?</h1>
+                <div className='grid gap-6 grid-cols-2 mx-auto w-3/4 my-10'>
+                    <p className='text-sm'><FaRegCheckCircle className='inline'></FaRegCheckCircle> Tired of Searching the best website design for your business</p>
+                    <p className='text-sm'><FaRegCheckCircle className='inline'></FaRegCheckCircle> Wanted a professional support for your business</p>
+                    <p className='text-sm'><FaRegCheckCircle className='inline'></FaRegCheckCircle> Searching for a trusted source build a website</p>
+                    <p className='text-sm'><FaRegCheckCircle className='inline'></FaRegCheckCircle> Need someone to maintain your website well</p>
                 </div>
             </div>
             <div>
