@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import img from '../../../pictures/photo-1467232004584-a241de8bcf5d.webp'
 import { FaRegCheckCircle } from 'react-icons/fa'
 const Home = () => {
+    useEffect(() => {
+        fetch('http://localhost:5000/threeServices')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+    }, [])
     return (
         <div>
             <div className='w-3/4 mx-auto relative my-4'>
