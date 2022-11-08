@@ -7,7 +7,8 @@ const Header = () => {
         themeChange(false)
     }, [])
     const menu = <>
-        <li><Link className='btn btn-ghost'>Home</Link></li>
+        <li><Link className='btn btn-ghost' to='/'>Home</Link></li>
+        <li><Link className='btn btn-ghost' to='/services'>Services</Link></li>
     </>
     return (
         <div>

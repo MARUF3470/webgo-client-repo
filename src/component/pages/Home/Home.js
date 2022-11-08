@@ -3,6 +3,7 @@ import img from '../../../pictures/photo-1467232004584-a241de8bcf5d.webp'
 import img2 from '../../../pictures/Maruf.jpg'
 import { FaRegCheckCircle } from 'react-icons/fa'
 import Service from '../Service/Service';
+import { Link } from 'react-router-dom';
 const Home = () => {
     const [services, setServices] = useState(null)
     useEffect(() => {
@@ -44,11 +45,11 @@ const Home = () => {
                         services?.map(service => <Service key={service._id} service={service}></Service>)
                     }
                 </div>
-                <div className='text-center my-3'>
-                    <button className="btn btn-wide btn-sm">All Services</button>
+                <div className='text-center'>
+                    <Link to='/services'><button className="btn btn-wide btn-sm">All Services</button></Link>
                 </div>
             </div>
-            <div className='shadow-sm p-3 '>
+            <div className='shadow-sm p-3 mt-10 '>
                 <div className='w-3/4 mx-auto relative my-7 '>
                     <img src={img2} alt="" className='w-96 rounded-lg' />
                     <div className='absolute left-80 top-1/4 w-1/2  '>
