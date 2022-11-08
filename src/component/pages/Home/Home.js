@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import img from '../../../pictures/photo-1467232004584-a241de8bcf5d.webp'
+import img2 from '../../../pictures/Maruf.jpg'
 import { FaRegCheckCircle } from 'react-icons/fa'
+import Service from '../Service/Service';
 const Home = () => {
+    const [services, setServices] = useState(null)
     useEffect(() => {
         fetch('http://localhost:5000/threeServices')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                setServices(data)
             })
     }, [])
     return (
@@ -34,7 +38,30 @@ const Home = () => {
                 </div>
             </div>
             <div>
-
+                <h1 className='text-center text-4xl uppercase'>Services</h1>
+                <div className='grid grid-cols-3 my-3'>
+                    {
+                        services?.map(service => <Service key={service._id} service={service}></Service>)
+                    }
+                </div>
+                <div className='text-center my-3'>
+                    <button className="btn btn-wide btn-sm">All Services</button>
+                </div>
+            </div>
+            <div className='shadow-sm p-3 '>
+                <div className='w-3/4 mx-auto relative my-7 '>
+                    <img src={img2} alt="" className='w-96 rounded-lg' />
+                    <div className='absolute left-80 top-1/4 w-1/2  '>
+                        <div className=" card bg-neutral text-neutral-content ">
+                            <div className="card-body text-start">
+                                <h2 className=" uppercase font-mono">hi there!</h2>
+                                <h1 className=' text-4xl'>I'm Maruf</h1>
+                                <p className='text-xs mt-3 uppercase tracking-[.25em]'>Full stack Web-developer</p>
+                                <p>I'm working as a full stack web developer since 2020. I have expertise in mordern web development tools. You can also call me a MERN developer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
