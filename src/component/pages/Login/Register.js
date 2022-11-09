@@ -42,7 +42,8 @@ const Register = () => {
     const handleGoogleLogin = () => {
         goolgeLogin()
             .then(res => {
-
+                const user = res.user;
+                console.log(user)
             })
             .catch(err => console.error(err))
     }
