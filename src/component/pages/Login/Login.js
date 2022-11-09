@@ -1,14 +1,27 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
-    const { userLogin } = useContext(AuthContext)
+    const { userLogin, goolgeLogin } = useContext(AuthContext)
     const handleLoginForm = (event) => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        userLogin(email, password)
+            .then(res => {
 
+            })
+            .catch(err => console.error(err))
+
+    }
+    const handleGoogleLogin = () => {
+        goolgeLogin()
+            .then(res => {
+
+            })
+            .catch(err => console.error(err))
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -31,13 +44,14 @@ const Login = () => {
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" />
                             <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                <p>Do not have an account? <Link className='btn btn-active btn-link' to='/register'>Register</Link></p>
                             </label>
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </div>
+                    <button onClick={handleGoogleLogin} className="btn btn-outline">Google login</button>
                 </form>
             </div>
         </div>
