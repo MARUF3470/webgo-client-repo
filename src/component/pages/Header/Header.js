@@ -16,8 +16,11 @@ const Header = () => {
     const menu = <>
         <li><Link className='btn btn-ghost' to='/'>Home</Link></li>
         <li><Link className='btn btn-ghost' to='/services'>Services</Link></li>
-        <li><Link className='btn btn-ghost' to='/addService'>Add service</Link></li>
-        <li><Link className='btn btn-ghost' to='/myreview'>My Review</Link></li>
+        <li><Link className='btn btn-ghost' to='/blogs'>Blog</Link></li>
+        {
+            user?.email && <> <li><Link className='btn btn-ghost' to='/addService'>Add service</Link></li>
+                <li><Link className='btn btn-ghost' to='/myreview'>My Review</Link></li></>
+        }
     </>
     return (
         <div>

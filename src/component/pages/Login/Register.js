@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 
 import img from '../../../pictures/img2.webp'
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Register = () => {
+    useTitle('Register')
     const { userRegister, updateUserProfile, goolgeLogin } = useContext(AuthContext)
     const handleRegisterForm = (event) => {
         event.preventDefault()

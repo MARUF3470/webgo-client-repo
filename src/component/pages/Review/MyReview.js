@@ -1,8 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+import useTitle from '../../../hooks/useTitle';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Review from './Review';
 
 const MyReview = () => {
+    useTitle('Review')
     const { user } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
     // const email = user?.email;
@@ -23,7 +26,7 @@ const MyReview = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('deleted successfully');
+                        toast.error('Review Deleted')
                         const remaining = reviews.filter(rev => rev._id !== id);
                         setReviews(remaining);
                     }
@@ -33,6 +36,10 @@ const MyReview = () => {
     return (
         <div>
             <div className='my-2'>
+                <Toaster
+                    position="top-center"
+                    reverseOrder={false}
+                />
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">
                         <thead>

@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import useTitle from '../../../hooks/useTitle';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const AddPost = () => {
+    useTitle('Add Service')
     const { user } = useContext(AuthContext)
     // console.log(user)
     const displayName = user?.displayName;

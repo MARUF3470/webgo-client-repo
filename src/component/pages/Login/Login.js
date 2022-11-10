@@ -3,8 +3,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import img from '../../../pictures/img2.webp'
 import toast, { Toaster } from 'react-hot-toast';
+import useTitle from '../../../hooks/useTitle';
 
 const Login = () => {
+    useTitle('Login')
     const { userLogin, goolgeLogin } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
