@@ -13,7 +13,7 @@ const MyReview = () => {
         fetch(`http://localhost:5000/review?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                //       console.log(data)
                 setReviews(data)
             })
     }, [])
@@ -33,6 +33,7 @@ const MyReview = () => {
                 })
         }
     }
+
     return (
         <div>
             <div className='my-2'>
@@ -60,7 +61,7 @@ const MyReview = () => {
                             </tr>
                         </thead>
                         {
-                            reviews?.map(rev => <Review key={rev._id} rev={rev} handleDelete={handleDelete}></Review>)
+                            reviews?.map(rev => <Review key={rev._id} rev={rev} handleDelete={handleDelete} reviews={reviews}></Review>)
                         }
                     </table>
                 </div>
