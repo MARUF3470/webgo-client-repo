@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ReviewForService = ({ rev }) => {
-    const { review, email, photo, userName, serviceName } = rev
+    const { review, email, photo, userName, serviceName, time } = rev
     return (
         <tr>
             <td>
@@ -23,6 +23,10 @@ const ReviewForService = ({ rev }) => {
             </td>
             <th>
                 <p>{review}</p>
+                {/* <button className="btn btn-ghost btn-xs">{review}</button> */}
+            </th>
+            <th>
+                <p>{time}</p>
                 {/* <button className="btn btn-ghost btn-xs">{review}</button> */}
             </th>
         </tr>

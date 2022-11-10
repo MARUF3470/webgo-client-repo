@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Review = ({ rev, handleDelete }) => {
     const { review, email, photo, userName, serviceName, _id } = rev
@@ -21,14 +21,18 @@ const Review = ({ rev, handleDelete }) => {
                     rev.review = newReview
                     setUpdateR(rev.review)
                     toast.success("SuccessFully Updated")
+                    event.target.reset()
                 }
             })
 
     }
-
+    <Toaster
+        position="top-center"
+        reverseOrder={false}
+    />
     return (
         <tr>
-            <th>
+            <td>
                 <label>
                     {/* The button to open modal */}
                     <label htmlFor="my-modal-5" className="btn">open modal</label>
@@ -45,7 +49,7 @@ const Review = ({ rev, handleDelete }) => {
                         </div>
                     </form>
                 </label>
-            </th>
+            </td>
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">

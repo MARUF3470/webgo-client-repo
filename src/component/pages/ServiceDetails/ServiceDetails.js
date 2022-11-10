@@ -38,6 +38,7 @@ const ServiceDetails = () => {
                                     <th>Name</th>
                                     <th>Service Name</th>
                                     <th>Review</th>
+                                    <th>Time</th>
 
                                 </tr>
                             </thead>
