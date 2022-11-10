@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        return <button className="btn loading">loading</button>
+        return <div className='text-center my-72'><button className="btn loading btn-wide">loading</button></div>
     }
     if (user) {
 
