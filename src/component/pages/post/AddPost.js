@@ -18,7 +18,7 @@ const AddPost = () => {
     const id = window.location.pathname.split('/')[2];
     console.log(id)
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://webgo-personal-developer-server.vercel.app/services/${id}`)
             .then(res => res.json())
             .then(serviceData => {
                 //console.log(data)
@@ -45,10 +45,13 @@ const AddPost = () => {
 
 
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://webgo-personal-developer-server.vercel.app/review', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+
+                authorization: `Bearer ${localStorage.getItem('genius-token')}`
+
             },
             body: JSON.stringify(reviewDetails)
         })

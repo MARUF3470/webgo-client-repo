@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import Review from '../Review/Review';
 import ReviewForService from '../Review/ReviewForService';
 
 const ServiceDetails = () => {
     const { balance, picture, name, about, _id } = useLoaderData()
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/review/${_id}`)
+        fetch(`https://webgo-personal-developer-server.vercel.app/serviceReview/${_id}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('genius-token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
                 setReviews(data)
             })
     }, [])
-    //console.log(reviews)
+    console.log(reviews)
     return (
         <div className='bg-base-200 pb-5'>
             <div className="hero min-h-screen">
@@ -43,7 +46,7 @@ const ServiceDetails = () => {
                                 </tr>
                             </thead>
                             {
-                                reviews.map(rev => <ReviewForService key={rev._id} rev={rev}></ReviewForService>)
+                                reviews?.map(rev => <ReviewForService key={rev._id} rev={rev}></ReviewForService>)
                             }
                         </table>
                     </div>

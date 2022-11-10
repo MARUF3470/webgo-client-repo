@@ -7,20 +7,24 @@ import Review from './Review';
 const MyReview = () => {
     useTitle('Review')
     const { user } = useContext(AuthContext)
+    // console.log(user?.email)
     const [reviews, setReviews] = useState([])
-    // const email = user?.email;
     useEffect(() => {
-        fetch(`http://localhost:5000/review?email=${user?.email}`)
+        fetch(`https://webgo-personal-developer-server.vercel.app/review/${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('genius-token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
-                //       console.log(data)
+                //console.log(data)
                 setReviews(data)
             })
-    }, [])
+    }, [user?.email])
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to cancel this order');
         if (proceed) {
-            fetch(`http://localhost:5000/review/${id}`, {
+            fetch(`https://webgo-personal-developer-server.vercel.app/review/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

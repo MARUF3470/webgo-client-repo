@@ -22,13 +22,13 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services',
-                loader: () => fetch('http://localhost:5000/services'),
+                loader: () => fetch('https://webgo-personal-developer-server.vercel.app/services'),
                 element: <Services></Services>
             },
             {
                 path: '/services/:id',
                 loader: ({ params }) => {
-                    return fetch(`http://localhost:5000/services/${params.id}`)
+                    return fetch(`https://webgo-personal-developer-server.vercel.app/services/${params.id}`)
 
                 },
                 element: <ServiceDetails></ServiceDetails>

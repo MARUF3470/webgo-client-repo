@@ -9,7 +9,7 @@ const Home = () => {
     useTitle('Home')
     const [services, setServices] = useState(null)
     useEffect(() => {
-        fetch('http://localhost:5000/threeServices')
+        fetch('https://webgo-personal-developer-server.vercel.app/threeServices')
             .then(res => res.json())
             .then(data => {
                 console.log(data)

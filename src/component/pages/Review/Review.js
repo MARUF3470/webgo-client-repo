@@ -7,10 +7,13 @@ const Review = ({ rev, handleDelete }) => {
     const handleModal = event => {
         event.preventDefault()
         const newReview = event.target.review.value;
-        fetch(`http://localhost:5000/review/${_id}`, {
+        fetch(`https://webgo-personal-developer-server.vercel.app/review/${_id}`, {
             method: 'PATCH',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+
+                authorization: `Bearer ${localStorage.getItem('genius-token')}`
+
             },
             body: JSON.stringify({ status: newReview })
         })
