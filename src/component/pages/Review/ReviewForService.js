@@ -1,18 +1,9 @@
 import React from 'react';
 
-const Review = ({ rev }) => {
-    const { review, email, photo, userName } = rev
+const ReviewForService = ({ rev }) => {
+    const { review, email, photo, userName, serviceName } = rev
     return (
-
-
         <tr>
-            <th>
-                <label>
-                    <button className="btn">
-                        Update
-                    </button>
-                </label>
-            </th>
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
@@ -25,14 +16,17 @@ const Review = ({ rev }) => {
             <td>
                 {userName}
                 <br />
-                <span className="badge badge-ghost badge-sm">{email}</span>
+                <span className='text-sm'>{email}</span>
+            </td>
+            <td>
+                {serviceName}
             </td>
             <th>
-                <button className="btn btn-ghost btn-xs">{review}</button>
+                <p>{review}</p>
+                {/* <button className="btn btn-ghost btn-xs">{review}</button> */}
             </th>
         </tr>
-
     );
 };
 
-export default Review;
+export default ReviewForService;

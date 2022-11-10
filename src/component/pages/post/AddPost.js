@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
@@ -9,12 +9,27 @@ const AddPost = () => {
     const email = user?.email;
     const photoURL = user?.photoURL;
 
+    const [service, setService] = useState([])
+
     const id = window.location.pathname.split('/')[2];
     console.log(id)
+    useEffect(() => {
+        fetch(`http://localhost:5000/services/${id}`)
+            .then(res => res.json())
+            .then(serviceData => {
+                //console.log(data)
+                setService(serviceData)
+            })
+
+    }, [])
+
+    // console.log(service)
+    const { name } = service
     const handleReview = event => {
         event.preventDefault()
         const review = event.target.review.value;
         const reviewDetails = {
+            serviceName: name,
             userName: displayName,
             email: email,
             photo: photoURL,
@@ -22,6 +37,9 @@ const AddPost = () => {
             review: review
         }
         console.log(reviewDetails)
+
+
+
         fetch('http://localhost:5000/review', {
             method: 'POST',
             headers: {

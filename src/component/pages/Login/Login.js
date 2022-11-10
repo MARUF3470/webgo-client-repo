@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import img from '../../../pictures/img2.webp'
 import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
     const { userLogin, goolgeLogin } = useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
     const handleLoginForm = (event) => {
         event.preventDefault()
         const form = event.target;
@@ -15,6 +18,7 @@ const Login = () => {
             .then(res => {
                 form.reset()
                 toast.success('Login Successfully')
+                navigate(from, { replace: true })
             })
             .catch(err => console.error(err))
 
@@ -22,7 +26,8 @@ const Login = () => {
     const handleGoogleLogin = () => {
         goolgeLogin()
             .then(res => {
-
+                toast.success('Login Successfully')
+                navigate(from, { replace: true })
             })
             .catch(err => console.error(err))
     }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Review from '../Review/Review';
+import ReviewForService from '../Review/ReviewForService';
 
 const ServiceDetails = () => {
     const { balance, picture, name, about, _id } = useLoaderData()
@@ -27,11 +28,29 @@ const ServiceDetails = () => {
                 </div>
             </div>
             <div>
-                <div>
-                    {
-                        reviews.map(rev => <Review key={rev._id} rev={rev}></Review>)
-                    }
+                <div className='my-2'>
+                    <div className="overflow-x-auto w-full">
+                        <table className="table w-full">
+                            <thead>
+                                <tr>
+
+                                    <th>Photo</th>
+                                    <th>Name</th>
+                                    <th>Service Name</th>
+                                    <th>Review</th>
+
+                                </tr>
+                            </thead>
+                            {
+                                reviews.map(rev => <ReviewForService key={rev._id} rev={rev}></ReviewForService>)
+                            }
+                        </table>
+                    </div>
                 </div>
+
+
+
+
                 <div className='text-center'>
                     <Link to={`/addReview/${_id}`}><button className="btn btn-wide btn-sm">Add your Review</button></Link>
                 </div>
