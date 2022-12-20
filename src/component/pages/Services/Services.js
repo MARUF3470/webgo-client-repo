@@ -12,7 +12,7 @@ const Services = () => {
         return <div className='text-center my-72'><button className="btn loading btn-wide">loading</button></div>
     }
     return (
-        <div className='my-10 grid grid-cols-3'>
+        <div className='my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             {
                 services?.map(service => <Service key={service._id} service={service}></Service>)
             }

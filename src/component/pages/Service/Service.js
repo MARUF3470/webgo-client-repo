@@ -5,10 +5,8 @@ import { Link } from 'react-router-dom';
 const Service = ({ service }) => {
     const { about, balance, name, picture, _id } = service
     return (
-        <div className='mx-auto h-96'>
-
+        <div className='mx-auto h-96 my-0'>
             <div className="card w-96 bg-base-100 shadow-xl">
-
                 <figure><PhotoProvider><PhotoView src={picture}><img src={picture} alt="Shoes" className='w-96 h-40' /></PhotoView></PhotoProvider></figure>
 
                 <div className="card-body p-4">

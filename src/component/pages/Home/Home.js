@@ -19,8 +19,8 @@ const Home = () => {
     return (
         <div>
             <div className='w-3/4 mx-auto relative my-4'>
-                <img src={img} alt="" className='w-3/4 h-96 rounded-lg' />
-                <div className='absolute -right-10 top-1/3 w-1/3 '>
+                <img src={img} alt="" className='lg:w-3/4 lg:h-96 rounded-lg' />
+                <div className='lg:absolute lg:-right-10 lg:top-1/3 lg:w-1/3 '>
                     <div className=" card bg-neutral text-neutral-content ">
                         <div className="card-body items-center text-center">
                             <h2 className="card-title uppercase">Personal Web-Developer</h2>
@@ -42,7 +42,7 @@ const Home = () => {
             </div>
             <div>
                 <h1 className='text-center text-4xl uppercase'>Services</h1>
-                <div className='grid grid-cols-3 my-3'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-3'>
                     {
                         services?.map(service => <Service key={service._id} service={service}></Service>)
                     }
@@ -52,13 +52,13 @@ const Home = () => {
                 </div>
             </div>
             <div className='shadow-sm p-3 mt-10 '>
-                <div className='w-3/4 mx-auto relative my-7 '>
-                    <img src={img2} alt="" className='w-96 rounded-lg' />
-                    <div className='absolute left-80 top-1/4 w-1/2  '>
+                <div className='w-3/4 mx-auto relative my-7'>
+                    <img src={img2} alt="" className='lg:w-96 rounded-lg' />
+                    <div className='lg:absolute lg:left-80 lg:top-1/4 lg:w-1/2 '>
                         <div className=" card bg-neutral text-neutral-content ">
                             <div className="card-body text-start">
-                                <h2 className=" uppercase font-mono">hi there!</h2>
-                                <h1 className=' text-4xl'>I'm Maruf</h1>
+                                <h2 className="uppercase font-mono">hi there!</h2>
+                                <h1 className='text-4xl'>I'm Maruf</h1>
                                 <p className='text-xs mt-3 uppercase tracking-[.25em]'>Full stack Web-developer</p>
                                 <p>I'm working as a full stack web developer since 2020. I have expertise in mordern web development tools. You can also call me a MERN developer.</p>
                             </div>
